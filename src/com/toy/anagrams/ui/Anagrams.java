@@ -32,9 +32,12 @@
 package com.toy.anagrams.ui;
 
 import com.toy.anagrams.lib.WordLibrary;
+import com.toy.anagrams.lib.StaticWordLibrary;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
+
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -77,10 +80,13 @@ public class Anagrams extends JFrame {
 
     private int wordIdx = 0;
     private WordLibrary wordLibrary;
+    private StaticWordLibrary sw;
+    
 
     /** Creates new form Anagrams */
     public Anagrams() {
         wordLibrary = WordLibrary.getDefault();
+        
         
         initComponents();
         getRootPane().setDefaultButton(guessButton);
@@ -217,6 +223,24 @@ public class Anagrams extends JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        
+    	    switch(selectLevel.getSelectedIndex()) {
+    	    case 1:
+    	    	for(int i=0;i<1;i++) {
+    	    		sw.getScrambledWord(i);
+    	    		}break;
+    	    case 2:
+    	    	for(int i=0;i<2;i++) {
+    	    		sw.getScrambledWord(i);
+    	    	}break;
+    	    case 3:
+    	    	for(int i=0;i<3;i++) {
+    	    		sw.getScrambledWord(i);
+    	    	}break;
+    	    }
+    	    
+    	    
+
         mainPanel.add(selectLevel, gridBagConstraints);
 
         getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);

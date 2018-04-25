@@ -31,10 +31,12 @@
 
 package com.toy.anagrams.lib;
 
+import java.util.Random;
+
 /**
  * Implementation of the logic for the Anagram Game application.
  */
-final class StaticWordLibrary extends WordLibrary {
+public final class StaticWordLibrary extends WordLibrary {
 
     private static final String[] WORD_LIST = {
         "abstraction",
@@ -81,10 +83,18 @@ final class StaticWordLibrary extends WordLibrary {
         "hotjava",
         "vertex",
         "unsigned",
-        "traditional"};
+        "traditional",
+        "melon",
+        "straw",
+        "juice",
+        "cake",
+        "aplil",
+        "ice",
+        "spy"
+        };
 
     private static final String[] SCRAMBLED_WORD_LIST = {
-        "batsartcoin",
+        /*"batsartcoin",
         "maibuguos",
         "ratimhteci",
         "abkclssha",
@@ -128,11 +138,18 @@ final class StaticWordLibrary extends WordLibrary {
         "ohjtvaa",
         "evtrxe",
         "nuisngde",
-        "rtdatioialn"
+        "rtdatioialn",
+        "elmon",
+        "twars",
+        "ijuce",
+        "kace",
+        "piral",
+        "cie",
+        "yps"*/
     };
     
     final static WordLibrary DEFAULT = new StaticWordLibrary();
-
+    
     /**
      * Singleton class.
      */
@@ -146,7 +163,7 @@ final class StaticWordLibrary extends WordLibrary {
      */
     public String getWord(int idx) {
         return WORD_LIST[idx];
-    }
+        }
 
     /**
      * Gets the word at a given index in its scrambled form.
@@ -154,8 +171,24 @@ final class StaticWordLibrary extends WordLibrary {
      * @return word at that index in its scrambled form
      */
     public String getScrambledWord(int idx) {
-        return SCRAMBLED_WORD_LIST[idx];
+        
+    	String a = WORD_LIST[idx];
+    	String[] b=a.split("");
+    	Random rnd=new Random();
+    	int randomNumber = rnd.nextInt(b.length);
+    	int randomNumber2 = rnd.nextInt(b.length);
+    	
+    	String w=b[randomNumber];
+    	b[randomNumber]=b[randomNumber2];
+    	b[randomNumber2]=w;
+    	String c=b[0];
+    	for(int i=1;i<b.length;i++) {
+    		c=c+b[i];
+    	}
+    	return c;
     }
+    
+    
 
     /**
      * Gets the number of words in the library.
