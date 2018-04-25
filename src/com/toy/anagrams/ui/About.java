@@ -80,7 +80,7 @@ public class About extends JDialog {
         copyrightTextArea.setEditable(false);
         copyrightTextArea.setLineWrap(true);
         copyrightTextArea.setRows(8);
-        copyrightTextArea.setText("The Smallest Badominton Club\n\nHazuki Hiromati, Nana Kuroki, Natsumi Mihara");
+        copyrightTextArea.setText("The Smallest Badminton Club\n\nHazuki Hiromati, Nana Kuroki, Nastumi Mihara");
         copyrightTextArea.setWrapStyleWord(true);
         copyrightTextArea.setBorder(null);
         copyrightTextArea.setFocusable(false);
